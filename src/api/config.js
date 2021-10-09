@@ -4,7 +4,7 @@ const Globals = ()=>{
  
     return {
         //API_URL:"http://localhost/backend/api"
-        API_URL:"http://whispering-garden-73689.herokuapp.com/api"
+        API_URL:"https://whispering-garden-73689.herokuapp.com/api"
     }
 }
 
