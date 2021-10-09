@@ -1,0 +1,15 @@
+.link-text{
+    font-weight: 400;
+    color: #ffffff;
+    &:hover{
+        color: $sec-var-color;
+    }
+}
+.link-container{
+    &.parallel{
+        display: flex;
+        justify-content: space-between;
+        width: 412px;
+    }
+    margin-bottom: 1.5rem;
+}

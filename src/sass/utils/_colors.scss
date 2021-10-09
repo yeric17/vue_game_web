@@ -1,0 +1,15 @@
+$pri-color: #0081a7;
+$pri-var-color: #00afb9;
+$sec-color: #f07167;
+$sec-var-color: #fed9b7;
+$ligth-color: #fdfcdc;
+$ligth-l1-color: lighten($ligth-color,6%);
+
+:root{
+    --pri-color: #0081a7;
+    --pri-var-color: #00afb9;
+    --sec-color: #f07167;
+    --sec-var-color: #fed9b7;
+    --ligth-color: #fdfcdc;
+    
+}

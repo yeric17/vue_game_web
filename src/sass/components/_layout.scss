@@ -1,0 +1,18 @@
+.app {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    background:linear-gradient(to top, $ligth-color, $sec-var-color);
+}
+.header{
+    margin-bottom: 4rem;
+}
+.content{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;    
+    max-width: 960px;
+}
+.footer{
+    min-height: 200px;
+}

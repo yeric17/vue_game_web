@@ -1,0 +1,97 @@
+.header{
+    background-color: $pri-var-color;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    position: relative;
+    box-shadow: 0 1px 2px 0 rgba(black, .5),
+    0 3px 3px 0 rgba(black, .3),
+    0 10px 8px 0 rgba(black, .2);
+    &-title{
+        margin: 0;
+    }
+    &-icon{
+        display: block;
+        height: 3rem;
+        width: 3rem;
+        background-color: $ligth-l1-color;
+        
+    }
+    &-nav{
+        height: 100%;
+        .nav-list{
+            display: flex;
+            
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-list-item{
+            min-width: 150px;
+            text-align: center;
+            position:relative;
+        }
+        .nav-link{
+            background-color: $pri-color;
+            display: flex;
+            padding: .5rem;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100%;
+            cursor: pointer;
+            font-weight: 500;
+            color: white;
+            &:hover{
+                background-color: darken($pri-color, 10%);
+            }
+
+            &.router-link-exact-active{
+                
+                &:after{
+                    content: "";
+                    display: block;
+                    height: 1.5rem;
+                    width: 100%;
+                    left: 0;
+                    position: absolute;
+                    background-color: $pri-color;
+                    border-radius: 1.5rem;
+                    bottom: 0;
+                    transform: translateY(50%);
+                    box-shadow: 0 4px 2px 0 rgba(black, .2),
+                    0 4px 4px 0 rgba(black, .2);
+                }
+
+                &:hover:after{
+                    background-color: darken($pri-color, 10%);
+                }
+            }
+        }
+    }
+}
+
+
+//Nav user
+
+
+
+.user-nav{
+    background-color: $pri-color;
+    border-radius: 8px;
+    font-weight: 400;
+    color: antiquewhite;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(80%) scaleY(0);
+    z-index: 100;
+    padding: 1rem;
+    transition: .3s all;
+    transform-origin: top;
+    cursor: pointer;
+}
+.header-icon:hover .user-nav{
+    transform: translateY(80%) scaleY(1);
+}
