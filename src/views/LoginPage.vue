@@ -40,7 +40,6 @@ export default {
         Login(this.email,this.password).then(data=>{
           if(this.isAuthenticated){
             this.authFailed = false
-            window.location.replace('/news')
           }
           else this.authFailed = true
         })
