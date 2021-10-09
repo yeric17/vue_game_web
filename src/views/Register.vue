@@ -10,7 +10,7 @@
 				type="text",
 				placeholder="Nombre del nuevo usuario..",
 				required,
-				v-model="userName"
+				v-model="newUser.name"
 			)
 		label#user_email.input-text.input-email
 			span.input-label Correo electrónico
@@ -18,11 +18,11 @@
 				type="text",
 				placeholder="Ingrese una cuenta de correo...",
 				required,
-				v-model="email"
+				v-model="newUser.email"
 			)
 		label#user_email.input-text.input-email
 			span.input-label Contraseña
-			input(type="password", placeholder="Registre la contraseña...", required, v-model="password")
+			input(type="password", placeholder="Registre la contraseña...", required, v-model="newUser.password")
 			span.error(v-if="!PasswordSecurity" :data-error="errorMessage2")
 	  
 		label.input-text
@@ -56,24 +56,26 @@ export default {
   },
   data() {
     return {
-      userName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-	  errorMessage: "",
-	  errorMessage2: ""
+		newUser: {
+			name: "",
+			email: "",
+			password: ""
+		},
+		confirmPassword: "",
+		errorMessage: "",
+		errorMessage2: ""
     };
   },
   computed: {
     PasswordCheck() {
-      let flag = this.password === this.confirmPassword || this.confirmPassword == "";
+      let flag = this.newUser.password === this.confirmPassword || this.confirmPassword == "";
 	  this.errorMessage = flag?'':'Confirmación de contraseña no coinciden'
 	  return flag
     },
 	PasswordSecurity(){
 		let regSecPassword = /^(?=(?:.*\d))(?=.*[A-Z])(?=.*[a-z])(?=.*[.,*!?¿¡/#$%&])\S{8,64}$/
 
-		let flag = regSecPassword.test(this.password) || this.password == ""
+		let flag = regSecPassword.test(this.newUser.password) || this.newUser.password == ""
 
 		this.errorMessage2 = flag?'':'La contraseña no es segura'
 
@@ -89,7 +91,7 @@ export default {
 
       let { CreateUser } = useLogin();
 
-      let response = await CreateUser(this.userName, this.email, this.password);
+      let response = await CreateUser(this.newUser);
 
       console.log(response);
 

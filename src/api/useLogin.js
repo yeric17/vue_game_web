@@ -1,37 +1,41 @@
 import {ref} from 'vue'
 const CryptoJS = require("crypto-js");
+import Globals from './config'
+
+const {API_URL} = Globals()
 
 let isAuthenticated = ref(false)
 
 const useLogin = () =>{    
     const Login = async(email, password)=>{
+        console.log(Globals.API_URL)
         if(localStorage.getItem('token')){
             isAuthenticated.value = true
             return
         }
         let encrypted = EncriptPassword("0123456789abcdef0123456789abcdef",password)
         
-        let url = `http://localhost/Ejercicios/public/api/users.php?email=${email}&password=${JSON.stringify(encrypted)}`
+        API_URL
+
+        let url = `${API_URL}/users.php?email=${email}&password=${JSON.stringify(encrypted)}`
         
 
         let response = await fetch(url)
         
         let data = await response.json()
         
+        console.log(data)
+
         isAuthenticated.value = data.status === 200
 
         if(isAuthenticated){
             localStorage.setItem('token', JSON.stringify(data.data[0]))
         }
     }
-    const CreateUser = async(name, email, password)=>{
-        let encrypted = EncriptPassword("0123456789abcdef0123456789abcdef",password)
-        let user = {
-            name: name,
-            email: email,
-            password: encrypted
-        }
-        let url = `http://localhost/Ejercicios/public/api/users.php`
+    const CreateUser = async(user)=>{
+        let encrypted = EncriptPassword("0123456789abcdef0123456789abcdef",user.password)
+        user.password = encrypted
+        let url = `${API_URL}/users.php`
         let response = await fetch(url,{
             method: 'POST',
             headers: new Headers({

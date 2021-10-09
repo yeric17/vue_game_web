@@ -36,7 +36,7 @@ export default {
    LoginAction(){
         
         let {Login} = useLogin()
-
+        console.log('login action')
         Login(this.email,this.password).then(data=>{
           if(this.isAuthenticated){
             this.authFailed = false

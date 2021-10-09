@@ -1,12 +1,14 @@
 import {ref} from 'vue'
+import Globals from './config'
 
+const {API_URL} = Globals()
 
 const news = ref([])
 const useNews = () =>{
     let loading = ref(true)
     
     const getAllNews = async(limit=50)=>{
-        let url = `http://localhost/Ejercicios/public/api/news.php`
+        let url = `${API_URL}/news.php`
         let headers = new Headers()
         headers.set('Content-Type','application/json')
         let fetchOptions = {
@@ -26,7 +28,7 @@ const useNews = () =>{
         loading.value = false
     }
     const AddNew = async(newObject)=>{
-        let url = `http://localhost/Ejercicios/public/api/news.php`
+        let url = `${API_URL}/news.php`
 
         let response = await fetch(url,{
             method: 'POST',
