@@ -20,27 +20,32 @@ const routes = [
         {
             path: '/register',
             name: 'register',
-            component: Register
+            component: Register,
+            alias: '/register'
         },
         {
             path: '/news',
             name: 'news',
             component: News,
+            alias: '/news'
         },
         {
             path: '/profile',
             name: 'profile',
-            component: Profile
+            component: Profile,
+            alias: '/profile'
         },
         {
             path: '/scores',
             name: 'scores',
-            component: Scores
+            component: Scores,
+            alias: '/scores'
         },
         {
             path: '/updates',
             name: 'updates',
-            component: Updates
+            component: Updates,
+            alias: '/updates'
         }
 ];
 
