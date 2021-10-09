@@ -8,14 +8,13 @@ let isAuthenticated = ref(false)
 
 const useLogin = () =>{    
     const Login = async(email, password)=>{
-        console.log(Globals.API_URL)
+        
         if(localStorage.getItem('token')){
             isAuthenticated.value = true
             return
         }
         let encrypted = EncriptPassword("0123456789abcdef0123456789abcdef",password)
         
-        API_URL
 
         let url = `${API_URL}/users.php?email=${email}&password=${JSON.stringify(encrypted)}`
         
